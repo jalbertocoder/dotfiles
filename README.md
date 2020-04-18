@@ -1,2 +1,4 @@
 # dotfiles
-Mi dotfiles
+My dotfiles
+
+Create symbolic links is recommended
