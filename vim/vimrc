@@ -1,0 +1,183 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Nord
+Plugin 'arcticicestudio/nord-vim'
+
+" Gruvbox
+Plugin 'morhetz/gruvbox'
+
+" OneDark
+Plugin 'joshdick/onedark.vim'
+
+" Solarized
+Plugin 'altercation/vim-colors-solarized'
+
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
+
+" Surroundings
+Plugin 'tpope/vim-surround'
+
+" File System Explorer
+Plugin 'scrooloose/nerdtree'
+
+" NERDTree showing git status flags
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Git diff in the gutter
+Plugin 'airblade/vim-gitgutter'
+
+" Status/Tabline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Display tags in a window
+Plugin 'majutsushi/tagbar'
+
+" File launcher
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Asynchronous Lint Engine
+Plugin 'dense-analysis/ale'
+
+" Comments
+Plugin 'scrooloose/nerdcommenter'
+
+" Comentary
+Plugin 'tpope/vim-commentary'
+
+" Replace with what is in register
+Plugin 'ReplaceWithRegister'
+
+" Sort (alphabetically)
+Plugin 'christoomey/vim-sort-motion'
+
+" Python code-completion
+Plugin 'davidhalter/jedi-vim'
+
+" Python syntax and style checker
+Plugin 'nvie/vim-flake8'
+
+" Golang
+Plugin 'fatih/vim-go'
+
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'quramy/tsuquyomi'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+set encoding=utf-8
+set backspace=indent,eol,start
+syntax on
+"colorscheme nord
+"colorscheme gruvbox
+"colorscheme onedark
+colorscheme solarized
+set background=dark
+set t_Co=256
+set number
+set relativenumber
+set list lcs=trail:·,tab:»-
+set colorcolumn=50,72
+set cursorline
+
+if &term =~ '^xterm\|rxvt'
+  " the insert mode blinking underscore
+  let &t_SI .= "\<Esc>[3 q"
+  " the normal mode with solid block
+  let &t_EI .= "\<Esc>[2 q"
+endif
+
+set spell spelllang=en
+set spellfile=~/.vim/spell/en.utf-8.add
+
+" Gruvbox Settings
+"let g:gruvbox_contrast_dark = 'soft'
+
+" NERDTree Settings
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Airline Settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'gruvbox'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" PEP 8 indentation
+au BufNewFile,BufRead *.py
+\ set tabstop=4 |
+\ set softtabstop=4 |
+\ set shiftwidth=4 |
+\ set textwidth=79 |
+\ set colorcolumn=79 |
+\ set expandtab |
+\ set autoindent |
+\ set fileformat=unix
+
+" Set spaces and tabs for web development
+au BufNewFile,BufRead *.php,*.ts,*.js,*.html,*.css
+\ set tabstop=2 |
+\ set softtabstop=2 |
+\ set shiftwidth=2 |
+\ set textwidth=120 |
+\ set colorcolumn=120 |
+\ set expandtab |
+\ set autoindent |
+\ set fileformat=unix
+
+" Flag Unnecessary Whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+autocmd BufWritePost *.py call flake8#Flake8()
+
+" Go autocomplete
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
+" Run goimports along gofmt on each save
+let g:go_fmt_command = "goimports"
+
+" Automatically get signature/type info for object under cursor
+let g:go_auto_type_info = 1
+
+" Block arrows keys
+map <Left> <Nop>
+map <Up> <Nop>
+map <Right> <Nop>
+map <Down> <Nop>
+
+" Map NERDTree toggler
+map <F8> :NERDTreeToggle<CR>
+
+" Map tagbar toggler
+map <F9> :TagbarToggle<CR>
