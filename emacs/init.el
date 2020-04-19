@@ -1,13 +1,51 @@
-(package-initialize)
+;; .emacs.d/init.el
+
+;; ===================================
+;; MELPA Package Support
+;; ===================================
+;; Enables basic packaging support
+(require 'package)
 
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; Initializes the package infrastructure
+(package-initialize)
+
+;; If there are no archived package contents, refresh them
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; Installs packages
+;;
+;; myPackages contains a list of package names
+(defvar myPackages
+  '(powerline
+    smex
+    which-key
+    solarized-theme
+    org
+    elpy
+    )
+  )
+
+;; Scans the list in myPackages
+;; If the package listed is not already installed, install it
+(mapc #'(lambda (package)
+          (unless (package-installed-p package)
+            (package-install package)))
+      myPackages)
+
+;; ===================================
+;; Basic Customization
+;; ===================================
 
 (menu-bar-mode 1)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (global-display-line-numbers-mode 1)
 (set-default-font "Jetbrains Mono-15")
+(load-theme 'solarized-dark t)
 
 (require 'powerline)
 (powerline-default-theme)
@@ -20,19 +58,4 @@
 
 (elpy-enable)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes
-   (quote
-    ("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
- '(package-selected-packages (quote (org elpy solarized-theme which-key smex powerline))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; User-Defined init.el ends here
