@@ -26,6 +26,8 @@
     solarized-theme
     org
     elpy
+    flycheck
+    py-autopep8
     )
   )
 
@@ -56,6 +58,20 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (which-key-mode 1)
 
+;; ====================================
+;; Development Setup
+;; ====================================
+;; Enable elpy
 (elpy-enable)
+(setq elpy-rpc-virtualenv-path 'current)
+
+;; Enable Flycheck
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; Enable autopep8
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;; User-Defined init.el ends here
