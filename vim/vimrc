@@ -13,15 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Nord
 Plugin 'arcticicestudio/nord-vim'
 
-" Gruvbox
-Plugin 'morhetz/gruvbox'
-
-" OneDark
-Plugin 'joshdick/onedark.vim'
-
-" Solarized
-Plugin 'altercation/vim-colors-solarized'
-
 " Git wrapper
 Plugin 'tpope/vim-fugitive'
 
@@ -68,9 +59,6 @@ Plugin 'davidhalter/jedi-vim'
 " Python syntax and style checker
 Plugin 'nvie/vim-flake8'
 
-" Golang
-Plugin 'fatih/vim-go'
-
 " Typescript
 Plugin 'leafgarland/typescript-vim'
 Plugin 'quramy/tsuquyomi'
@@ -90,14 +78,11 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+syntax on
+colorscheme nord
+set background=dark
 set encoding=utf-8
 set backspace=indent,eol,start
-syntax on
-"colorscheme nord
-"colorscheme gruvbox
-"colorscheme onedark
-colorscheme solarized
-set background=dark
 set t_Co=256
 set number
 set relativenumber
@@ -115,17 +100,14 @@ endif
 set spell spelllang=en
 set spellfile=~/.vim/spell/en.utf-8.add
 
-" Gruvbox Settings
-"let g:gruvbox_contrast_dark = 'soft'
-
 " NERDTree Settings
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'nord'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -156,19 +138,10 @@ au BufNewFile,BufRead *.php,*.ts,*.js,*.html,*.css
 \ set autoindent |
 \ set fileformat=unix
 
-" Flag Unnecessary Whitespace
+" Flag unnecessary white space
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 autocmd BufWritePost *.py call flake8#Flake8()
-
-" Go autocomplete
-au filetype go inoremap <buffer> . .<C-x><C-o>
-
-" Run goimports along gofmt on each save
-let g:go_fmt_command = "goimports"
-
-" Automatically get signature/type info for object under cursor
-let g:go_auto_type_info = 1
 
 " Block arrows keys
 map <Left> <Nop>
