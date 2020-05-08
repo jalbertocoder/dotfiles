@@ -42,11 +42,11 @@
 ;; Basic Customization
 ;; ===================================
 
-(menu-bar-mode 1)
+(menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (global-display-line-numbers-mode 1)
-(set-default-font "Jetbrains Mono-15")
+(set-default-font "Jetbrains Mono-12")
 (load-theme 'solarized-dark t)
 
 (require 'powerline)
