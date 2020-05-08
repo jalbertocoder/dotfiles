@@ -23,7 +23,7 @@
   '(powerline
     smex
     which-key
-    solarized-theme
+    nord-theme
     org
     )
   )
@@ -44,7 +44,7 @@
 (scroll-bar-mode 0)
 (global-display-line-numbers-mode 1)
 (set-default-font "Jetbrains Mono-12")
-(load-theme 'solarized-dark t)
+(load-theme 'nord t)
 
 (require 'powerline)
 (powerline-default-theme)
@@ -56,3 +56,4 @@
 (which-key-mode 1)
 
 ;; User-Defined init.el ends here
+
