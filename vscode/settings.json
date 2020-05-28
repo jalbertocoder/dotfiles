@@ -1,0 +1,13 @@
+{
+    "editor.fontFamily": "Jetbrains Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.lineHeight": 24,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [79, 120],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "vscode-icons"
+}
