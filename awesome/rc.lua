@@ -294,9 +294,9 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "r", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Shift"   }, "r", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -312,8 +312,14 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    --awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --          {description = "run prompt", group = "launcher"}),
+
+    -- Rofi
+    awful.key({ modkey          }, "space", function () awful.util.spawn("rofi -show run -theme glue_pro_blue -font 'IBMPlexSans 12'")     end,
+              {description = "run rofi app launcher", group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "space", function () awful.util.spawn("rofi -show window -theme glue_pro_blue -font 'IBMPlextSans 12'") end,
+              {description = "run rofi app switcher", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
