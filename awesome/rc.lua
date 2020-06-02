@@ -17,6 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Applications Menu generated with xdg_menu
+xdg_menu = require("archmenu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -50,7 +52,7 @@ beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -92,6 +94,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Applications", xdgmenu },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -279,7 +282,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    awful.key({ modkey, "Shift"   }, "c", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -316,9 +319,15 @@ globalkeys = gears.table.join(
     --          {description = "run prompt", group = "launcher"}),
 
     -- Rofi
-    awful.key({ modkey          }, "space", function () awful.util.spawn("rofi -show run -theme glue_pro_blue -font 'IBMPlexSans 12'")     end,
+    awful.key({ modkey          }, "space",
+              function ()
+                  awful.util.spawn("rofi -show drun -theme lb -font 'IBMPlexSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+              end,
               {description = "run rofi app launcher", group = "launcher"}),
-    awful.key({ modkey, "Shift" }, "space", function () awful.util.spawn("rofi -show window -theme glue_pro_blue -font 'IBMPlextSans 12'") end,
+    awful.key({ modkey, "Shift" }, "space",
+              function ()
+                  awful.util.spawn("rofi -show window -theme lb -font 'IBMPlextSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+              end,
               {description = "run rofi app switcher", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -343,7 +352,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -497,7 +506,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
