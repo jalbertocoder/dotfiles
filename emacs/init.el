@@ -25,6 +25,7 @@
     which-key
     nord-theme
     org
+    haskell-mode
     )
   )
 
@@ -54,6 +55,10 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (which-key-mode 1)
+
+(add-hook 'haskell-mode-hool 'haskell-indent-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'haskell-doc-mode)
 
 ;; User-Defined init.el ends here
 
