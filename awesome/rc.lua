@@ -582,3 +582,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("xscreensaver -no-splash")
+awful.spawn.with_shell("conky")
