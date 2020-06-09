@@ -1,3 +1,10 @@
+;; _          _
+;;| |__   ___| |_ ___
+;;| '_ \ / _ \ __/ _ \
+;;| |_) |  __/ || (_) |
+;;|_.__/ \___|\__\___/
+;;
+
 ;; .emacs.d/init.el
 
 ;; ===================================
@@ -61,4 +68,3 @@
 (add-hook 'haskell-mode-hook 'haskell-doc-mode)
 
 ;; User-Defined init.el ends here
-

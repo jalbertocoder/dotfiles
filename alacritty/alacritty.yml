@@ -1,3 +1,10 @@
+# _          _
+#| |__   ___| |_ ___
+#| '_ \ / _ \ __/ _ \
+#| |_) |  __/ || (_) |
+#|_.__/ \___|\__\___/
+#
+
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Any items in the `env` entry below will be added as
@@ -305,7 +312,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.96
+background_opacity: 0.90
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

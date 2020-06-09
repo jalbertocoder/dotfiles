@@ -1,2 +1,9 @@
+# _          _
+#| |__   ___| |_ ___
+#| '_ \ / _ \ __/ _ \
+#| |_) |  __/ || (_) |
+#|_.__/ \___|\__\___/
+#
+
 # nvm Node Version Manager
 source /usr/share/nvm/init-nvm.sh
