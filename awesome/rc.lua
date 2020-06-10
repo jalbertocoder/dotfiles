@@ -328,12 +328,12 @@ globalkeys = gears.table.join(
     -- Rofi
     awful.key({ modkey          }, "space",
               function ()
-                  awful.util.spawn("rofi -show drun -theme lb -font 'IBMPlexSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show drun -theme Arc-Dark -font 'IBMPlexSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app launcher", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "space",
               function ()
-                  awful.util.spawn("rofi -show window -theme lb -font 'IBMPlextSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show window -theme Arc-Dark -font 'IBMPlextSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app switcher", group = "launcher"}),
 
@@ -589,4 +589,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("xscreensaver -no-splash")
-awful.spawn.with_shell("conky")
+--awful.spawn.with_shell("conky")
