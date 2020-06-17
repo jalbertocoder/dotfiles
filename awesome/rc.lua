@@ -26,6 +26,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 -- Applications Menu generated with xdg_menu
 xdg_menu = require("archmenu")
+-- CPU widget
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+-- Volume widget
+local volumebar_widget = require("awesome-wm-widgets.volumebar-widget.volumebar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -220,10 +224,23 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+            cpu_widget({
+                    width = 70,
+                    step_width = 2,
+                    step_spacing = 0,
+                    color = '#d8dee9'
+            }),
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            volumebar_widget({
+                    main_color = '#d8dee9',
+                    mute_color = '#ff0000',
+                    width = 80,
+                    shape = 'octogon',
+                    margins = 12
+            }),
             s.mylayoutbox,
         },
     }
