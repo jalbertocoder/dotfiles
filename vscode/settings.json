@@ -5,6 +5,7 @@
     "editor.lineHeight": 24,
     "editor.renderWhitespace": "all",
     "editor.rulers": [79, 120],
+    "files.autoSave": "afterDelay",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,

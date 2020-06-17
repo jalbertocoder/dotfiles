@@ -5,7 +5,7 @@
 #|_.__/ \___|\__\___/
 #
 
-# nvm Node Version Manager
-if [ -e /usr/share/nvm/init-nvm.sh ]; then
-  source /usr/share/nvm/init-nvm.sh
+# local bin
+if [ -e ~/.local/bin ]; then
+  PATH=$PATH:~/.local/bin
 fi

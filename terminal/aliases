@@ -23,3 +23,9 @@ alias wifi-list='nmcli device wifi list'
 alias wifi-connect='nmcli device wifi connect $WIFI_SSID password $WIFI_PASS'
 alias wifi-plus-connect='nmcli device wifi connect $WIFI_PLUS_SSID password $WIFI_PASS'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+#################################################
+# Weather
+#################################################
+alias weather='curl wttr.in'
+
