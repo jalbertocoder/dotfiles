@@ -30,6 +30,8 @@ xdg_menu = require("archmenu")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 -- Volume widget
 local volumebar_widget = require("awesome-wm-widgets.volumebar-widget.volumebar")
+-- Calendar widget
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -123,6 +125,15 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("  %A  %d/%m/%Y  %H:%M:%S ", 1)
+-- Calendar
+local cw = calendar_widget({
+                theme = 'nord',
+                placement = 'bottom_right'
+        })
+mytextclock:connect_signal("button::press",
+        function(_, _, _, button)
+                if button == 1 then cw.toggle() end
+        end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
