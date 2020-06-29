@@ -29,3 +29,7 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 #################################################
 alias weather='curl wttr.in'
 
+#################################################
+# Games
+#################################################
+alias tron='ssh sshtron.zachlatta.com'
