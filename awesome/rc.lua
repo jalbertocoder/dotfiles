@@ -377,7 +377,11 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    -- Emacs
+    awful.key({ modkey }, "e", function() awful.util.spawn("emacs") end,
+              {description = "launch emacs", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
