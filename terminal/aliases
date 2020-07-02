@@ -22,7 +22,7 @@ alias reload='source ~/.zshrc'
 alias wifi-list='nmcli device wifi list'
 alias wifi-connect='nmcli device wifi connect $WIFI_SSID password $WIFI_PASS'
 alias wifi-plus-connect='nmcli device wifi connect $WIFI_PLUS_SSID password $WIFI_PASS'
-alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com | xclip -selection clipboard && xclip -selection clipboard -o'
 
 #################################################
 # Weather
