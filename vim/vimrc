@@ -70,6 +70,12 @@ Plugin 'nvie/vim-flake8'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'quramy/tsuquyomi'
 
+" PHP code-completion
+Plugin 'shawncplus/phpcomplete.vim'
+
+" PHP syntax checker
+Plugin 'stanangeloff/php.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
