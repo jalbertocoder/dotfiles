@@ -10,5 +10,6 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "workbench.colorTheme": "Nord",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vs-minimal",
+    "go.formatTool": "goimports"
 }
