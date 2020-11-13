@@ -62,8 +62,8 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
-theme.taglist_fg_focus    = "#3992af"
-theme.taglist_fg_occupied = "#164b5d"
+theme.taglist_fg_focus    = "#D929CD"
+theme.taglist_fg_occupied = "#3992AF"
 theme.taglist_fg_urgent   = "#ED7572"
 theme.taglist_fg_empty    = "#828282"
 theme.taglist_spacing     = 2
@@ -115,7 +115,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/Pictures/wallpapers/neon-wallpaper002.jpg"
+theme.wallpaper = "~/Pictures/wallpapers/skull-wallpaper001.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

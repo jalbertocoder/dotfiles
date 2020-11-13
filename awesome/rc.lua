@@ -386,7 +386,11 @@ globalkeys = gears.table.join(
 
     -- Jome - emojis
     awful.key({ modkey, "Control" }, "e", function() awful.util.spawn("jome-ctl jome-server") end, 
-              {description = "show the emojis picker"})
+              {description = "show the emojis picker"}),
+
+    -- Spotify controls
+    awful.key({ modkey }, "Pause", function() awful.util.spawn("playerctl --player spotify play-pause") end,
+              {description = "play-pause spotify", group = "media"})
 )
 
 clientkeys = gears.table.join(
