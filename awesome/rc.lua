@@ -222,7 +222,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, opacity = 0.96 })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, opacity = 0.98 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -375,13 +375,18 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
     -- Emacs
     awful.key({ modkey }, "e", function() awful.util.spawn("emacs") end,
-              {description = "launch emacs", group = "launcher"})
+              {description = "launch emacs", group = "launcher"}),
+
+    -- Jome - emojis
+    awful.key({ modkey, "Control" }, "e", function() awful.util.spawn("jome-ctl jome-server") end, 
+              {description = "show the emojis picker"})
 )
 
 clientkeys = gears.table.join(
@@ -621,4 +626,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("xscreensaver -no-splash")
+awful.spawn.with_shell("jome -d -s jome-server -c \'xdotool type\'")
 --awful.spawn.with_shell("conky")

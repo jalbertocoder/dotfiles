@@ -11,5 +11,6 @@
     "files.trimTrailingWhitespace": true,
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "vs-minimal",
-    "go.formatTool": "goimports"
+    "go.formatTool": "goimports",
+    "window.zoomLevel": 0
 }

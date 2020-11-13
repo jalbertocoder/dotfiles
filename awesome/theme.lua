@@ -70,7 +70,7 @@ theme.taglist_spacing     = 2
 theme.taglist_font = "IBMPlexMono Bold 14"
 
 -- Variables set for theming notifications:
--- notification_font
+theme.notification_font = "IBMPlexSans 12"
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
@@ -115,7 +115,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/Pictures/wallpapers/gnu-wallpaper001.jpg"
+theme.wallpaper = "~/Pictures/wallpapers/neon-wallpaper002.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
