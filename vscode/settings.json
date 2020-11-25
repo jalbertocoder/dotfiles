@@ -1,16 +1,23 @@
 {
+    "cSpell.userWords": [
+        "autoload",
+        "beto",
+        "phpunit"
+    ],
     "editor.fontFamily": "Jetbrains Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
+    "editor.insertSpaces": true,
     "editor.lineHeight": 24,
     "editor.renderWhitespace": "all",
     "editor.rulers": [79, 120],
+    "editor.tabSize": 4,
     "files.autoSave": "afterDelay",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
+    "go.formatTool": "goimports",
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "vs-minimal",
-    "go.formatTool": "goimports",
     "window.zoomLevel": 0
 }

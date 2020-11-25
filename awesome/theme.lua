@@ -31,7 +31,7 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(3)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
@@ -50,8 +50,8 @@ theme.border_marked = "#91231c"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-theme.hotkeys_font = "IBMPlexSans 12"
-theme.hotkeys_description_font = "IBMPlexSans 10"
+theme.hotkeys_font = "Hurmit Nerd Font 13"
+theme.hotkeys_description_font = "Hurmit Nerd Font 10"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -70,7 +70,7 @@ theme.taglist_spacing     = 2
 theme.taglist_font = "IBMPlexMono Bold 14"
 
 -- Variables set for theming notifications:
-theme.notification_font = "IBMPlexSans 12"
+theme.notification_font = "Hurmit Nerd Font 12"
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
@@ -81,7 +81,7 @@ theme.notification_font = "IBMPlexSans 12"
 theme.menu_submenu_icon = "~/.config/awesome/submenu.png"
 theme.menu_height = dpi(22)
 theme.menu_width  = dpi(150)
-theme.menu_font   = "IBMPlexSans 12"
+theme.menu_font   = "Hurmit Nerd Font 12"
 
 -- You can add as many variables as
 -- you wish and access them by using

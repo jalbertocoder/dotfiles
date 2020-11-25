@@ -356,12 +356,12 @@ globalkeys = gears.table.join(
     -- Rofi
     awful.key({ modkey          }, "space",
               function ()
-                  awful.util.spawn("rofi -show drun -theme Arc-Dark -font 'IBMPlexSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show drun -theme Arc-Dark -font 'Hurmit Nerd Font 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app launcher", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "space",
               function ()
-                  awful.util.spawn("rofi -show window -theme Arc-Dark -font 'IBMPlextSans 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show window -theme Arc-Dark -font 'Hurmit Nerd Font 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app switcher", group = "launcher"}),
 
@@ -385,12 +385,22 @@ globalkeys = gears.table.join(
               {description = "launch emacs", group = "launcher"}),
 
     -- Jome - emojis
-    awful.key({ modkey, "Control" }, "e", function() awful.util.spawn("jome-ctl jome-server") end, 
+    awful.key({ modkey, "Control" }, "e", function() awful.util.spawn("jome-ctl jome-server") end,
               {description = "show the emojis picker"}),
 
     -- Spotify controls
     awful.key({ modkey }, "Pause", function() awful.util.spawn("playerctl --player spotify play-pause") end,
-              {description = "play-pause spotify", group = "media"})
+              {description = "play-pause spotify", group = "media"}),
+
+    -- Volume controls
+    awful.key({ modkey }, "Up", function() awful.util.spawn("amixer -D pulse sset Master 5%+") end,
+              {description = "increase volume level", group = "media"}),
+    awful.key({ modkey }, "Down", function() awful.util.spawn("amixer -D pulse sset Master 5%-") end,
+              {description = "decrease volume level", group = "media"}),
+
+    -- Find-Cursor
+    awful.key({ modkey }, "`", function() awful.util.spawn("find-cursor --size 256 --distance 40 --line-width 3 --wait 500 --color '#D929CD' --repeat 1 -f -t") end,
+              {description = "find cursor"})
 )
 
 clientkeys = gears.table.join(
