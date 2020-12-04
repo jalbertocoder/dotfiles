@@ -26,6 +26,9 @@ Plugin 'tpope/vim-fugitive'
 " Surroundings
 Plugin 'tpope/vim-surround'
 
+" Automatic closing of quotes, parenthesis, brackets...
+Plugin 'raimondi/delimitmate'
+
 " File System Explorer
 Plugin 'scrooloose/nerdtree'
 
@@ -78,6 +81,7 @@ Plugin 'stanangeloff/php.vim'
 
 " Golang support
 Plugin 'fatih/vim-go'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,6 +102,7 @@ syntax on
 colorscheme nord
 set background=dark
 set encoding=utf-8
+set autowrite
 set backspace=indent,eol,start
 set t_Co=256
 set number
@@ -153,6 +158,46 @@ au BufNewFile,BufRead *.php,*.ts,*.js,*.html,*.css
 \ set expandtab |
 \ set autoindent |
 \ set fileformat=unix
+
+" go-vim settings
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+	let l:file = expand('%')
+	if l:file =~# '^\f\+_test\.go$'
+		call go#test#Test(0, 1)
+	elseif l:file =~# '^\f\+\.go$'
+		call go#cmd#Build(0)
+	endif
+endfunction
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+let g:go_addtags_transform = 'camelcase'
+let g:go_decls_includes = 'func,type'
+let g:go_def_mode = 'guru' " change to 'godef' to get faster results
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = 'goimports'
+let g:go_fmt_fail_silently = 0
+let g:go_list_type = 'quickfix'
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = '5s'
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_test_timeout = '10s'
+let g:go_textobj_include_function_doc = 1
 
 " Flag unnecessary white space
 highlight BadWhitespace ctermbg=red guibg=darkred

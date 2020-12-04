@@ -18,7 +18,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "IBMPlexSans 12"
+theme.font          = "Hurmit Nerd Font Mono 12"
 
 theme.bg_normal     = "#2E3440"
 theme.bg_focus      = "#3B4252"
@@ -31,7 +31,7 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(3)
+theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
@@ -50,8 +50,8 @@ theme.border_marked = "#91231c"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-theme.hotkeys_font = "Hurmit Nerd Font 13"
-theme.hotkeys_description_font = "Hurmit Nerd Font 10"
+theme.hotkeys_font = "Hurmit Nerd Font Mono 13"
+theme.hotkeys_description_font = "Hurmit Nerd Font Mono 10"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -70,18 +70,19 @@ theme.taglist_spacing     = 2
 theme.taglist_font = "IBMPlexMono Bold 14"
 
 -- Variables set for theming notifications:
-theme.notification_font = "Hurmit Nerd Font 12"
+theme.notification_font = "Hurmit Nerd Font Mono 12"
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
+theme.notification_border_color = "#D929CD"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "~/.config/awesome/submenu.png"
 theme.menu_height = dpi(22)
-theme.menu_width  = dpi(150)
-theme.menu_font   = "Hurmit Nerd Font 12"
+theme.menu_width  = dpi(175)
+theme.menu_font   = "Hurmit Nerd Font Mono 12"
 
 -- You can add as many variables as
 -- you wish and access them by using

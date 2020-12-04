@@ -128,7 +128,8 @@ mytextclock = wibox.widget.textclock("  %A  %d/%m/%Y  %H:%M:%S ", 1)
 -- Calendar
 local cw = calendar_widget({
                 theme = 'nord',
-                placement = 'bottom_right'
+                placement = 'top_right',
+                radius = 8
         })
 mytextclock:connect_signal("button::press",
         function(_, _, _, button)
@@ -222,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, opacity = 0.98 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, opacity = 0.95 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -246,11 +247,11 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             volumebar_widget({
-                    main_color = '#d8dee9',
-                    mute_color = '#ff0000',
+                    main_color = '#3992AF',
+                    mute_color = '#D929CD',
                     width = 80,
                     shape = 'octogon',
-                    margins = 12
+                    margins = 8
             }),
             s.mylayoutbox,
         },
@@ -638,7 +639,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
-awful.spawn.with_shell("compton")
+awful.spawn.with_shell("picom")
 awful.spawn.with_shell("xscreensaver -no-splash")
 awful.spawn.with_shell("jome -d -s jome-server -c \'xdotool type\'")
+awful.spawn.with_shell("udiskie")
 --awful.spawn.with_shell("conky")
