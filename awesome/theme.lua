@@ -20,10 +20,10 @@ local theme = {}
 
 theme.font          = "Hurmit Nerd Font Mono 12"
 
-theme.bg_normal     = "#2E3440"
-theme.bg_focus      = "#3B4252"
-theme.bg_urgent     = "#434C5E"
-theme.bg_minimize   = "#4C566A"
+theme.bg_normal     = "#282a36"
+theme.bg_focus      = "#44475a"
+theme.bg_urgent     = "#44475a"
+theme.bg_minimize   = "#6272a4"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
@@ -31,11 +31,11 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.useless_gap   = dpi(6)
+theme.border_width  = dpi(2)
+theme.border_normal = "#282a36"
+theme.border_focus  = "#bd93f9"
+theme.border_marked = "#ff5555"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -62,10 +62,10 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
-theme.taglist_fg_focus    = "#D929CD"
-theme.taglist_fg_occupied = "#3992AF"
-theme.taglist_fg_urgent   = "#ED7572"
-theme.taglist_fg_empty    = "#828282"
+theme.taglist_fg_focus    = "#bd93f9"
+theme.taglist_fg_occupied = "#ff79c6"
+theme.taglist_fg_urgent   = "#50fa7b"
+theme.taglist_fg_empty    = "#44475a"
 theme.taglist_spacing     = 2
 theme.taglist_font = "IBMPlexMono Bold 14"
 
@@ -74,7 +74,8 @@ theme.notification_font = "Hurmit Nerd Font Mono 12"
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
-theme.notification_border_color = "#D929CD"
+theme.notification_border_color = "#bd93f9"
+theme.notification_border_width = 4
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -116,7 +117,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/Pictures/wallpapers/skull-wallpaper001.jpg"
+theme.wallpaper = "~/Pictures/wallpapers/dragon-ball-z-wallpaper003.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

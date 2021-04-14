@@ -127,7 +127,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock("  %A  %d/%m/%Y  %H:%M:%S ", 1)
 -- Calendar
 local cw = calendar_widget({
-                theme = 'nord',
+                theme = 'outrun',
                 placement = 'top_right',
                 radius = 8
         })
@@ -240,15 +240,15 @@ awful.screen.connect_for_each_screen(function(s)
                     width = 70,
                     step_width = 2,
                     step_spacing = 0,
-                    color = '#d8dee9'
+                    color = '#50fa7b'
             }),
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             volumebar_widget({
-                    main_color = '#3992AF',
-                    mute_color = '#D929CD',
+                    main_color = '#bd93f9',
+                    mute_color = '#ff5555',
                     width = 80,
                     shape = 'octogon',
                     margins = 8
@@ -357,12 +357,12 @@ globalkeys = gears.table.join(
     -- Rofi
     awful.key({ modkey          }, "space",
               function ()
-                  awful.util.spawn("rofi -show drun -theme Arc-Dark -font 'Hurmit Nerd Font 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app launcher", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "space",
               function ()
-                  awful.util.spawn("rofi -show window -theme Arc-Dark -font 'Hurmit Nerd Font 12' -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
+                  awful.util.spawn("rofi -show window -icon-theme 'Papirus' -show-icons -terminal 'alacritty'")
               end,
               {description = "run rofi app switcher", group = "launcher"}),
 
@@ -401,7 +401,11 @@ globalkeys = gears.table.join(
 
     -- Find-Cursor
     awful.key({ modkey }, "`", function() awful.util.spawn("find-cursor --size 256 --distance 40 --line-width 3 --wait 500 --color '#D929CD' --repeat 1 -f -t") end,
-              {description = "find cursor"})
+              {description = "find cursor"}),
+
+    -- Screenshot with Flameshot
+    awful.key({ modkey }, "Print", function() awful.util.spawn("flameshot gui") end,
+              {description = "make screenshot"})
 )
 
 clientkeys = gears.table.join(
@@ -643,4 +647,5 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("xscreensaver -no-splash")
 awful.spawn.with_shell("jome -d -s jome-server -c \'xdotool type\'")
 awful.spawn.with_shell("udiskie")
+--awful.spawn.with_shell("xrandr --output DP-3 --rotation left")
 --awful.spawn.with_shell("conky")

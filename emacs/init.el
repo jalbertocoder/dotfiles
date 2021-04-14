@@ -40,12 +40,12 @@
 (setq echo-keystrokes 0.5)
 (setq-default bidi-paragraph-direction 'left-to-right)
 (use-package rainbow-mode)
-(use-package nord-theme)
+(use-package dracula-theme)
 (use-package gruber-darker-theme)
 (use-package atom-one-dark-theme)
 (use-package monokai-theme)
 (use-package solarized-theme)
-(load-theme 'nord t)
+(load-theme 'dracula t)
 (use-package which-key
  :init (which-key-mode))
 (use-package powerline

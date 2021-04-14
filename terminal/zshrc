@@ -125,5 +125,11 @@ fi
 # Trigger neofetch
 neofetch
 
+# Display shortcuts
+shortcuts
+
+# Display pending tasks
+task list
+
 # Set starship propmt
 eval "$(starship init zsh)"

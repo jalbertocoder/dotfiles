@@ -9,3 +9,6 @@
 if [ -e /usr/share/nvm/init-nvm.sh ]; then
   source /usr/share/nvm/init-nvm.sh
 fi
+
+# setting go path
+export PATH=$PATH:$(go env GOPATH)/bin

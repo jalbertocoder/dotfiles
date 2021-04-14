@@ -33,3 +33,14 @@ alias weather='curl wttr.in'
 # Games
 #################################################
 alias tron='ssh sshtron.zachlatta.com'
+
+#################################################
+# Termianl
+#################################################
+alias shortcuts='cat ~/Documents/terminal-shortcuts'
+
+#################################################
+# Displays
+#################################################
+alias vertical-screen='xrandr --output DP-3 --rotation left'
+alias night-mode='redshift -l 40.4165:-3.70256'
