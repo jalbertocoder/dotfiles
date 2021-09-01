@@ -17,11 +17,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Nord
-Plugin 'arcticicestudio/nord-vim'
-
-" Dracula
-Plugin 'dracula/vim', { 'name': 'dracula' }
+" Base16 Theme
+Plugin 'chriskempson/base16-vim'
 
 " Git wrapper
 Plugin 'tpope/vim-fugitive'
@@ -102,7 +99,7 @@ filetype plugin on
 " Put your non-Plugin stuff after this line
 
 syntax on
-colorscheme dracula
+colorscheme base16-onedark
 set background=dark
 set encoding=utf-8
 set autowrite
@@ -131,7 +128,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'dracula'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'

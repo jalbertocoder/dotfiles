@@ -78,6 +78,7 @@ export ZSH="/home/beto/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	deno
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
@@ -114,6 +115,7 @@ if [ -e ~/.aliases ]; then
   source ~/.aliases
 fi
 
+# Commented because the paths are auto-loaded with a symbolic link in /etc/profile.d/custom-paths-autoload.sh
 if [ -e ~/.paths ]; then
   source ~/.paths
 fi
@@ -130,6 +132,9 @@ shortcuts
 
 # Display pending tasks
 task list
+
+# Display notes
+tnote
 
 # Set starship propmt
 eval "$(starship init zsh)"

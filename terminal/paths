@@ -12,3 +12,10 @@ fi
 
 # setting go path
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# setting deno path
+export DENO_INSTALL="/home/beto/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# setting python pip path
+export PATH=$PATH:"/home/beto/.local/bin"
