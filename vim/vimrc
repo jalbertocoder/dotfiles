@@ -5,102 +5,38 @@
 "|_.__/ \___|\__\___/
 "
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+".vimrc
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" init plugin
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" solarized theme
+Plug 'altercation/vim-colors-solarized'
 
-" Base16 Theme
-Plugin 'chriskempson/base16-vim'
+" git manager
+Plug 'tpope/vim-fugitive'
 
-" Git wrapper
-Plugin 'tpope/vim-fugitive'
+" file explorer
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Surroundings
-Plugin 'tpope/vim-surround'
+" button toolbar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" Automatic closing of quotes, parenthesis, brackets...
-Plugin 'raimondi/delimitmate'
+" programing languages support
+Plug 'sheerun/vim-polyglot'
 
-" File System Explorer
-Plugin 'scrooloose/nerdtree'
+" golang support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" NERDTree showing git status flags
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" Git diff in the gutter
-Plugin 'airblade/vim-gitgutter'
-
-" Status/Tabline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Display tags in a window
-Plugin 'majutsushi/tagbar'
-
-" File launcher
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" Asynchronous Lint Engine
-Plugin 'dense-analysis/ale'
-
-" Comments
-Plugin 'scrooloose/nerdcommenter'
-
-" Comentary
-Plugin 'tpope/vim-commentary'
-
-" Replace with what is in register
-Plugin 'ReplaceWithRegister'
-
-" Sort (alphabetically)
-Plugin 'christoomey/vim-sort-motion'
-
-" Python code-completion
-Plugin 'davidhalter/jedi-vim'
-
-" Python syntax and style checker
-Plugin 'nvie/vim-flake8'
-
-" Typescript
-Plugin 'leafgarland/typescript-vim'
-Plugin 'quramy/tsuquyomi'
-
-" PHP code-completion
-Plugin 'shawncplus/phpcomplete.vim'
-
-" PHP syntax checker
-Plugin 'stanangeloff/php.vim'
-
-" Golang support
-Plugin 'fatih/vim-go'
-Plugin 'AndrewRadev/splitjoin.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 syntax on
-colorscheme base16-onedark
+
 set background=dark
+"colorscheme onedark
+colorscheme solarized
 set encoding=utf-8
 set autowrite
 set backspace=indent,eol,start
@@ -110,107 +46,23 @@ set relativenumber
 set list lcs=trail:·,tab:»-
 set colorcolumn=50,72
 set cursorline
-
-if &term =~ '^xterm\|rxvt'
-  " the insert mode blinking underscore
-  let &t_SI .= "\<Esc>[3 q"
-  " the normal mode with solid block
-  let &t_EI .= "\<Esc>[2 q"
-endif
-
 set spell spelllang=en
 set spellfile=~/.vim/spell/en.utf-8.add
+set foldmethod=indent
+set foldlevel=99
 
-" NERDTree Settings
-"autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Airline Settings
+" config toolbar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" PEP 8 indentation
-au BufNewFile,BufRead *.py
-\ set tabstop=4 |
-\ set softtabstop=4 |
-\ set shiftwidth=4 |
-\ set textwidth=79 |
-\ set colorcolumn=79 |
-\ set expandtab |
-\ set autoindent |
-\ set fileformat=unix
-
-" Set spaces and tabs for web development
-au BufNewFile,BufRead *.php,*.ts,*.js,*.html,*.css
-\ set tabstop=2 |
-\ set softtabstop=2 |
-\ set shiftwidth=2 |
-\ set textwidth=120 |
-\ set colorcolumn=120 |
-\ set expandtab |
-\ set autoindent |
-\ set fileformat=unix
-
-" go-vim settings
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-	let l:file = expand('%')
-	if l:file =~# '^\f\+_test\.go$'
-		call go#test#Test(0, 1)
-	elseif l:file =~# '^\f\+\.go$'
-		call go#cmd#Build(0)
-	endif
-endfunction
-
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
-let g:go_addtags_transform = 'camelcase'
-let g:go_decls_includes = 'func,type'
-let g:go_def_mode = 'guru' " change to 'godef' to get faster results
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'goimports'
-let g:go_fmt_fail_silently = 0
-let g:go_list_type = 'quickfix'
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_deadline = '5s'
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_test_timeout = '10s'
-let g:go_textobj_include_function_doc = 1
-
-" Flag unnecessary white space
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-autocmd BufWritePost *.py call flake8#Flake8()
-
-" Block arrows keys
+" block arrow keys
 map <Left> <Nop>
 map <Up> <Nop>
 map <Right> <Nop>
 map <Down> <Nop>
 
-" Map NERDTree toggler
+" toggle nerdTree
 map <F8> :NERDTreeToggle<CR>
-
-" Map tagbar toggler
-map <F9> :TagbarToggle<CR>
