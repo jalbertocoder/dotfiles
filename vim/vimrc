@@ -10,22 +10,25 @@
 " init plugin
 call plug#begin('~/.vim/plugged')
 
-" solarized theme
-Plug 'altercation/vim-colors-solarized'
-
-" git manager
-Plug 'tpope/vim-fugitive'
-
-" file explorer
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" nord theme
+Plug 'arcticicestudio/nord-vim'
 
 " button toolbar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" programing languages support
-Plug 'sheerun/vim-polyglot'
+" git manager
+Plug 'tpope/vim-fugitive'
+
+" git diff in the sign column
+Plug 'airblade/vim-gitgutter'
+
+" file explorer
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" autocompletion
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -34,17 +37,18 @@ call plug#end()
 
 syntax on
 
+colorscheme nord
+
 set background=dark
-"colorscheme onedark
-colorscheme solarized
 set encoding=utf-8
 set autowrite
+"set list!
+"set listchars=tab:>-,trail:·
 set backspace=indent,eol,start
 set t_Co=256
 set number
 set relativenumber
-set list lcs=trail:·,tab:»-
-set colorcolumn=50,72
+set colorcolumn=80
 set cursorline
 set spell spelllang=en
 set spellfile=~/.vim/spell/en.utf-8.add
@@ -58,11 +62,29 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+" config vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+
 " block arrow keys
 map <Left> <Nop>
 map <Up> <Nop>
 map <Right> <Nop>
 map <Down> <Nop>
+
+" autocomplete surronders
+ino " ""<left>
+ino ' ''<left>
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
 
 " toggle nerdTree
 map <F8> :NERDTreeToggle<CR>
