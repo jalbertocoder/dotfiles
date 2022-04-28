@@ -25,7 +25,7 @@
 (setq visible-bell t)
 
 ;; Set font family and size
-(set-face-attribute 'default nil :font "IBM Plex Mono" :height 160)
+(set-face-attribute 'default nil :font "Hermit" :height 130)
 
 ;; Set tab width to 2 spaces
 (setq-default tab-width 2)
@@ -55,7 +55,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vterm go-mode php-mode neotree projectile company-box company magit which-key counsel hl-todo org-superstar doom-modeline solarized-theme)))
+   '(vterm go-mode neotree projectile company-box company magit which-key counsel hl-todo org-superstar doom-modeline nord-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -63,26 +63,8 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Make the fringe stand out from the background
-(setq solarized-distinct-fringe-background t)
-;; Don't change the font for some headings and titles
-(setq solarized-use-variable-pitch nil)
-;; Don't make the modeline high contrast
-(setq solarized-high-contrast-mode-line nil)
-;; Use less bolding
-(setq solarized-use-less-bold t)
-;; Use more italics
-(setq solarized-use-more-italic t)
-;; Use less colors for indicators such as git:gutter, flycheck and similar
-(setq solarized-emphasize-indicators nil)
-;; Don't change size of org-mode headlines (but keep other size-changes)
-(setq solarized-scale-org-headlines nil)
-;; Change the size of markdown-mode headlines (off by default)
-(setq solarized-scale-markdown-headlines t)
-;; Underline position setting
-(setq x-underline-at-descent-line t)
 ;; Load theme
-(load-theme 'solarized-dark t)
+(load-theme 'nord t)
 
 ;; Custom modeline
 (doom-modeline-mode 1)
@@ -140,8 +122,8 @@
 ;; What to display as the version while a new one is being loaded
 (setq doom-modeline-env-load-string "...")
 ;; Set font family and size
-(set-face-attribute 'mode-line nil :family "IBM Plex Mono" :height 140)
-(set-face-attribute 'mode-line-inactive nil :family "IBM Plex Mono" :height 140)
+(set-face-attribute 'mode-line nil :family "IBM Plex Mono" :height 120)
+(set-face-attribute 'mode-line-inactive nil :family "IBM Plex Mono" :height 120)
 
 ;; Fancy bullets for org-mode
 (add-hook 'org-mode-hook

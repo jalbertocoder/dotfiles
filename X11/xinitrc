@@ -1,0 +1,7 @@
+picom -b &
+xsetroot -cursor_name left_ptr &
+feh --bg-fill --no-fehbg ~/Pictures/wallpapers/nord001.png &
+xscreensaver -no-splash &
+xrdb -load ~/.config/X11/Xresources &
+[[ -f ~/.config/xmodmap/Xmodmap ]] && xmodmap ~/.config/xmodmap/Xmodmap &
+exec xmonad
