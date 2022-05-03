@@ -57,8 +57,10 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " https://github.com/fatih/v
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " https://github.com/neoclide/coc.nvim
 "Plug 'SirVer/ultisnips'                             " https://github.com/sirver/UltiSnips
 
-"> Theme
+"> Themes
 Plug 'NLKNguyen/papercolor-theme' " https://github.com/NLKNguyen/papercolor-theme
+Plug 'arcticicestudio/nord-vim' 	" https://github.com/arcticicestudio/nord-vim
+
 call plug#end()
 
 "-- plug END
@@ -77,9 +79,10 @@ set updatetime=500
 "-- vim-gitgutter END
 
 
-" papercolor-theme
+" papercolor/nord-theme
 set termguicolors
 set background=dark
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme nord
 
-"-- papercolor-theme END
+"-- papercolor/nord-theme END
